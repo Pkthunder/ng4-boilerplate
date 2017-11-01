@@ -1,0 +1,67 @@
+{
+  "name": "ng4-boilerplate",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "6.9.4"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "build-prod": "npm run build-app && npm run build-css",
+    "build-prod-w-vendor": "npm run build-vendor && npm run build-app && npm run build-css",
+    "build-app": "jspm bundle app - bundles/vendor.js src/assets/js/app.bundle.js --minify",
+    "build-vendor": "jspm bundle angular-common + angular-compiler + angular-core + angular-http + angular-forms + angular-platform-browser + angular-platform-browser-dynamic + angular-router + reflect-metadata + rxjs + zone.js src/assets/modules/bundles/vendor.js",
+    "build-dev-bundle": "jspm bundle angular-common + angular-compiler + angular-core + angular-http + angular-forms + angular-platform-browser + angular-platform-browser-dynamic + angular-router + reflect-metadata + rxjs + zone.js + typescript src/assets/modules/bundles/vendor-dev.js",
+    "build-css": "lessc src/assets/css/style.less src/assets/css/style.css",
+    "jspm-install": "jspm install",
+    "update-angular": "jspm install angular-core=npm:@angular/core && jspm install angular-compiler=npm:@angular/compiler && jspm install angular-common=npm:@angular/common && jspm install angular-platform-browser=npm:@angular/platform-browser && jspm install angular-platform-browser-dynamic=npm:@angular/platform-browser-dynamic  && jspm install angular-http=npm:@angular/http && jspm install angular-router=npm:@angular/router && jspm install angular-forms=npm:@angular/forms"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "moment": "^2.17.1",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "jspm": "^0.16.53",
+    "less": "^2.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Pkthunder/sandboxjs.git"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "src/assets/modules",
+      "packages": "src/assets/modules/packages"
+    },
+    "configFile": "src/assets/modules/jspm.config.js",
+    "dependencies": {
+      "angular-common": "npm:@angular/common@^4.2.6",
+      "angular-compiler": "npm:@angular/compiler@^4.2.6",
+      "angular-core": "npm:@angular/core@^4.2.6",
+      "angular-forms": "npm:@angular/forms@4.2.6",
+      "angular-http": "npm:@angular/http@^4.2.6",
+      "angular-platform-browser": "npm:@angular/platform-browser@^4.2.6",
+      "angular-platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^4.2.6",
+      "angular-router": "npm:@angular/router@^4.2.6",
+      "es6-shim": "github:es-shims/es6-shim@^0.35.3",
+      "reflect-metadata": "npm:reflect-metadata@^0.1.10",
+      "ts": "github:frankwallis/plugin-typescript@^7.0.6",
+      "typescript": "npm:typescript@^2.3.4",
+      "zone.js": "npm:zone.js@^0.8.10"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4",
+      "ts-runtime": "npm:babel-runtime@^5.8.24"
+    }
+  }
+}
